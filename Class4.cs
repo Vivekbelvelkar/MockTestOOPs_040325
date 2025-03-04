@@ -41,7 +41,7 @@ namespace MockTestOOPs_040325
         }
         public void show()
         {
-            Console.WriteLine($"Ititle: {title} author: {author} pagecount:{pagecount}");
+            Console.WriteLine($"Ititle: {title} author: {author} pagecount:{pagecount}");    //sorting by author
 
         }
     }
@@ -49,21 +49,31 @@ namespace MockTestOOPs_040325
     {
         public void mymethod()
         {
-            List<Book> books = new List<Book>                                     //list
+            List<Book> books = new List<Book>();    //booklist   
+
+            Console.Write("Enter number  books: ");
+            int count = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Book details");
+            for (int i = 0; i < count; i++)               //userinput
             {
-            new Book("abc", "ram", 300),
-            new Book("xyz", "shyam", 250),
-            new Book("sfaf", "Ali", 250),
-            new Book("wrget", "gyan", 400)
-            };
-            for(int i = 0; i < books.Count; i++)
-            {
-                string nm = 
+                
+
+                Console.WriteLine("Title: ");
+                string title = Console.ReadLine();
+
+                Console.WriteLine("Author: ");
+                string author = Console.ReadLine();
+
+                Console.WriteLine("Price: ");
+                int price = int.Parse(Console.ReadLine());
+
+                books.Add(new Book(title, author, price));
             }
 
             books.Sort();                                 //sorting
 
-            Console.WriteLine("Sorted Books:");
+            Console.WriteLine("------------------Sorted Books-------------");
             foreach (var book in books)
             {
                 book.show();
